@@ -1,0 +1,88 @@
+<script language="javascript" type="text/javascript">
+//<![CDATA[
+function winop(str){window.open(str, "win", "width=780,height=431,menubar=no");}
+//]]>
+</script>
+<div style="display:none;"><script language="javascript" type="text/javascript" src="/r/js/s_code.js"></script></div>
+<h1>Web Hosting Tutorials</h1>
+<div>
+<p>
+<small>
+This page: <?php
+// outputs e.g.  somefile.txt was last modified: December 29 2002 22:16:23.
+
+$filename = 'tutorials.php';
+if (file_exists($filename)) {
+   echo "$filename was last updated: " . date ("F d Y H:i:s.", filemtime($filename));
+}
+?>
+</small>
+</p>
+<h2>New Support Wiki</h2>
+<p>
+We now have a <a href="http://wiki.weycrest.co.uk" target="_blank"><strong>Support Wiki</strong></a> and a <a href="http://www.weycrest.co.uk/blog" title="Domain Name and Hosting Knowledgebase" target="_blank"><strong>Domain Name and Hosting Knowledgebase</strong></a> which contains walk through articles on various hosting topics as well as <a href="/psa8-flash-tutorials.php" title="Plesk Hosting Tutorial" title="Plesk Hosting Tutorials"><strong>Plesk tutorials and HOWTO's</strong></a> All future tutorials will be added to the Wiki and Knowledgebase rather than this page. 
+</p>
+
+<h2>FTP - File Transfer Protocol</h2>
+<p>
+Files can normally be transferred to the web server by a process called FTP (File Transport Protocol). You access your web space via FTP 24-hours a day, 365 days a year. As such, you can create and maintain your web pages on your own computer and upload files to your web site at your leisure.
+</p>
+<h2>FTP Tutorials</h2>
+<p><p>Below are Flash Tutorials showing you how to upload to your Weycrest web space using popular FTP Clients</p>
+<h3>Filezilla</h3>
+<p>Filezilla is a Free Multi platform FTP solution and can be downloaded for the Windows or Linux PC or Mac from <a href="http://filezilla-project.org/download.php?type=client" target="_blank" rel="nofollow"><strong>http://filezilla-project.org</strong></a>
+</p>
+<ul>
+<li><a href="javascript:winop('/flash/ftp/filezilla_configure.htm')"><strong>Configuring Your Site with Filezilla</strong></a></li>
+<li><a href="javascript:winop('/flash/ftp/filezilla_manage.htm')"><strong>Managing Your Web Site with Filezilla</strong></a></li>
+<li><a href="javascript:winop('/flash/ftp/filezilla_transfer.htm')"><strong>Transferring Files with Filezilla</strong></a></li>
+</ul>
+
+<h3>Ipswitch WS-FTP</h3>
+<p>Ipswitch WS_FTP is still one of the most popular FTP clients around, which can be downloaded for either the PC or Mac from <a href="http://www.wsftp.com" target="_blank" rel="nofollow"><strong>http://www.wsftp.com</strong></a>
+</p>
+<ul>
+<li><a href="javascript:winop('/flash/ftp/ws_ftp_configuresite.htm')"><strong>Configuring Your Site with WS-FTP</strong></a></li>
+<li><a href="javascript:winop('/flash/ftp/ws_ftp_managefiles.htm')"><strong>Managing Your Site with WS-FTP</strong></a></li>
+<li><a href="javascript:winop('/flash/ftp/ws_ftp_transferfiles.htm')"><strong>Transferring Files to your Site with WS-FTP</strong></a></li>
+</ul>
+<h2>Configuring Your FTP Software</h2> 
+<p>
+To connect to your site by you must first be connected to the Internet. You will need the following information:
+<ul>
+<li>FTP Host: Uusally ftp.yourdomainname </li>
+<li>Username: Your main account username </li>
+<li>Password: Your main account password </li>
+</ul>
+<p>
+This information would have been supplied in your initial setup letter. When you run your FTP client a session profile will show. The interface will vary depending on which FTP client you are using. A profile contains the information needed to connect to a web site. Our hosting accounts also support Dreamweaver which also incorporates an FTP client.
+</p>
+<h2>Creating a Profile Names</h2>
+<p>
+You don't need to enter the information every time that you connect to your site. To create a new profile click 'New'. Enter a name for the site in the Profile Name box (this can be anything you want). 
+</p>
+<p>
+The Host Name should be set to the one specified in your account activation notice. Host Type should be 'Automatic Detect'. Then enter your username and password into the relevant box. To save the settings for the future select 'Save Password' and 'Auto Save Config'. All other fields can be left blank. To connect to the web server click OK.
+</p>
+<h2>Transferring Files by FTP</h2>  
+<p>
+When you connect to the web server, you will connect directly to the root directory of your web space. Your FTP client will display a split screen, files on the left-hand side are within your own computer and files on the right hand site are those on the server. You will see two system folders on the right-hand called 'httpdocs' and 'cgi-bin'. There are other folders such as httpsdocs where secure or https documents are placed. Unless SSL has been enabled you account you can ignore the other folders for time being.
+</p>
+<p>
+To upload a file on the left side double click on it, the file will be transferred to the web server. You can transfer files directly to the root directory or create subdirectories. As soon as a file is uploaded to the web server, it is available for all to see.
+</p>
+<h2>The "Entry" Page to Your Web Site</h2>
+<p>
+To make your home page load automatically , when people visit your site, name your home or starter page html file should be called "index.html" or "index.htm" or "index.php" (if you are using php pages). All files should be in lowercase and upload it to the httpdocs directory of your account. The only other system directory that you may need to use is cgi-bin, this directory is for CGI and Perl scripts.
+</p>
+<h2>Acceptable File Names</h2>
+<p>
+The Linux operating system we use on our servers is case sensitive, so the file name 'contact.html' is NOT the same as 'Contact.Html'. If your HTML code hyperlinks tocontact.html, but the actual file name is in uppercase, this will result in the File Not Found error. This applies to directory as well.
+</p>
+<p>
+To prevent errors or confusion, we recommend naming all files in lowercase when you build a site. Spaces and punctuation characters should not be used, though the underscore character ('_') or a dash (-) as in domain-names.html is acceptable. It is generally easier if file names are short but have relevant meaning (and its search engine friendlier too!).
+</p>
+</div>
+
+
+

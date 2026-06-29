@@ -1,0 +1,81 @@
+<div class="mainTD2">
+<h1>This is the header</h1>
+</div>
+<div class="box" style="float:right; width:120px">
+<div class="mainTD">
+<script type="text/javascript"><!--
+google_ad_client = "pub-6695133827010826";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text";
+google_ad_channel ="8662101805";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "008000";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+<div style="font-size: 11px;">
+<p>
+<p>
+	You don't have to. You really don't. But, it's worthing considering.
+</p>
+<p>
+	There's a couple of reasons to care. The first is that some search engines
+	will only read X number of bytes into your page before it stops and indexes
+	whatever it got up to that point. If you're left and/or right columns come
+	first in the source, and they're incredibly long, the search engine may have
+	only indexed your side column(s) and never got to the meat of the page,
+	the middle column.
+</p>
+<p>
+	The second reason is that browsers which do not support CSS will not see your
+	page in a columned fashion. This means the content is presented in order
+	of what comes first in the source. So each page a user visits will give them
+	your navigation elements and whatever other stuff you've got in your side
+	columns. With the middle column appearing first in your layout's source, the
+	users of these browsers will get right to the meat of your page without
+	having to search for it. The downside is that there may be important navigational
+	elements in your side column(s) that you want to appear first. A way around this
+	would be to add a link at the top of the page that links to an anchor within
+	the page that's placed at the start of this important area. The link could say
+	something like "jump down to site navigation" or whatever you want. You can
+	hide this link using CSS so only non-CSS browsers will see it. Keep in mind
+	that if you implement a horizontal menu, as I've done on this page, that will
+	appear before the content as well. So perhaps the really important navigational 
+	elements go there, and then you don't have to worry about this.
+	This is something you may want to think a bit about before deciding what to do.
+</p>
+<p>
+
+	The third reason is Mac IE. I'm still trying to figure this one out but it seems
+	the negative-margin trick used to create the three-column layout in 
+	<a href="../skidoo/">skidoo</a> causes an issue with Mac IE's ability to select
+	within the three columns. It seems that selecting text within the first
+	element to come in the source of the document is... easier(?) than those
+	that follow in the source. So putting the middle column first means selecting
+	text from that column (should) be easier for Mac IE users (using Skidoo). Perhaps
+	I can find a workaround and this third reason won't apply anymore, but for now,
+	that's one of the reasons why I'm doing this.
+</p>
+<p>
+
+        The third reason is Mac IE. I'm still trying to figure this one out but it seems
+        the negative-margin trick used to create the three-column layout in
+        <a href="../skidoo/">skidoo</a> causes an issue with Mac IE's ability to select
+        within the three columns. It seems that selecting text within the first
+        element to come in the source of the document is... easier(?) than those
+        that follow in the source. So putting the middle column first means selecting
+        text from that column (should) be easier for Mac IE users (using Skidoo). Perhaps
+        I can find a workaround and this third reason won't apply anymore, but for now,
+        that's one of the reasons why I'm doing this.
+
+</p>
+</div>
+<?php include ("hostingpanel.inc") ?>

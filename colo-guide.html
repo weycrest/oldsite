@@ -1,0 +1,109 @@
+<h1>A guide to preparing your Dedicated Server for colocation in a Datacenter</h1>
+<h2>Basics of Colocation</h2>
+<div>
+<p>
+<a href="http://www.coreix.net">Server colocation</a> is usually for those who own their own server hardware and require complete control over the server configuration. Colocation specialists will
+house and connect a server you own, to a fast internet connection, usually in a secure datacentre, with 24/7 support.
+</p>
+<p>
+It is important to choose a colocation provider that either has their own data center or has a presence in one of the leading "data hotels." World Class data centres are located in major industrial cities (New York, London, Frankfurt for example). Here they are able to take advantage of the convergence of high capacity network connectivity that occurs in a major commercial centre. For instance fibre, and metrolinks and ease of connection to major Points of Presence (POPS) to the major telco's. For this reason only a very few of the leading ISP's or colocation specialist operate their own dedicated centre's due to the costs of providing remote connectivity, redundant power sources, air conditioning and filtered clean air. 
+</p>
+<h2>Colocation Connectivity</h2>
+<p>
+Also not all internet connections are equal. You really need to enquire if your colocation specialist is "multihomed" using the BGP protocol by having at least two connections to Tier One providers. Tier One providers are very large ISP's or Telco's who operate their own fibre links and networks without having to operate traffic (or transit) over another ISP's network. An example of a Tier One provider would be Level3 communications. 
+</p>
+<p>
+In addition to Tier One connections, the colocation specialist should have peering arrangement's at major exchange point's such as LINX. A peering point is where a number of ISP's arrange to "meet up" to exchange traffic between each other rather than pay for transit over someone else's network. In a way they are "cutting out the middleman!" This not only improves redundancy but also reduces latency; people will be able to access the websites and content hosted on your colocated server much faster if you colo host is well peered.</p>
+<p>
+Quite often a web host or Colocation ISP will negotiate many peering arrangements with other ISP's with whom they are exchanging a lot of traffic. Not only does this give them more resilience, but it also reduces their own transit costs with the Tier One providers enabling them to offer more competitive data transfer pricing.
+</p>
+<p>
+Latency is particularly important when it comes to game server hosting. Quite often an ISP specialising in games hosting will give you an IP address for you to test ping times and carry out traceroutes.
+</p>
+<h2>Hardware Choices</h2>
+<p>
+Server housing costs in London or New York can be expensive. Not suprisingly your hardware should be "rack optimized." Colocation is usually priced "per U." A "U" is 1.75 inches (or 4.44 cms). So rack servers, unlike desktop machines are long and flat. Data Centre's also employ different types Rack Cabinets which are typically 42U in height, enough to house 42 1U servers though some of this space is used to accomodate switches, cabling. Often some space is left free to allow
+for efficient air distribution in the cabinet.
+</p>
+<p>
+It's often worth liasing with your colo specialists over the choice of the physical hardware and especially the case and rack mounting. The colocation specialist will know which brands work in their racks. Personally I have found Dell Rack Optimized Servers and rail kits the quickest and easiest to rail up.
+</p>
+<p>
+So you have decided on the hardware, and you are about to ship your server to the remote colocation data centre. Bear in mind your server will shortly be hundreds of miles away, indeed if you are in the USA, it might even be few hours flight away so there are a few technical points to consider before the machine is boxed, shipped and colocated.
+</p>
+</div>
+<h2>Make sure the Operating System reboots</h2>
+<div>
+<p>
+All colocated dedicated servers run "headless." This means without the use of a 
+keyboard or monitor attached. Therefore you will need to ensure that the servers gets past the BIOS screen and boots the desired kernel without having to press any keys. It might be possible to set the BIOS on your dedicated server to stop on "no errors."
+</p>
+<p>
+If your are running Linux the kernel you will need to ensure the correct kernel is booted without intervention. This is usually determined by the configuration on /etc/grub.conf if the GRUB boot loader is used, or /etc/lilo.conf if the  LILO boot loader is used. After any changes have been made to the LILO configuration remember to run "/sbin/lilo -v" and ensure there are no errors.
+</p>
+<p>
+Also make sure the kernel "works" properly with the hardware. This is especially true if have compiled the kernel yourself or are using specialist hardware.
+</div>
+<h2>Make sure the server "Auto Powers" on</h2>
+<div>
+<p>
+Most colocation facilities provide an auto power cycler from a web interface. However this can fail if the machine does not auto power back up (requiring the intervention of a techie). Most server BIOS's are equipped with either "OFF", "LAST STATE" or "ALWAYS ON". In this case you will require "ALWAYS ON." it is possible to hack cheaper ATX motherboards to be "ALWAYS ON" but it is better to consider a more expensive motherboard.
+</p>
+</p>
+</div>
+<h2>Properly Configured Network</h2>
+<div>
+<p>Make sure you configure the network addresses, DNS server and gateways properly prior to delivery of the dedicated server. This information will have been provided in advance by the colocation provider. Also make sure you can get back into the server remotely by having the SSHD daemon running (telnet is not secure).
+</p>
+<p>
+OpenSSH is shipped with all the main Linux distributions. You might wish to consider configuring SSH (usually done in /etc/sshd/sshd_config) to work with Protocol2 only, disable root logins (or only allow public key exchanges with the `without-password` option) and to turn off X11 forwarding as this is not required on a production server.
+</p>
+<p>
+Many servers have multiple ethernet connectors, so it an be helpful, if you are not using the second interface to either mask it off with tape or label the correct ethernet device. 
+</p>
+</div>
+<h2>Set up a Serial Console</h2>
+<div>
+<p>
+This is sometimes called "out of band" management. Quite often a colocation provider will have a serial terminal on site. This is basically a server itself but with loads of serial ports. This enables you to connect to your server if the network has failed to your server for any reason.
+</p>
+<p>
+The most common serial port settings are 9600 8n1 (we do not recommend running it a faster speed). If you are running a Red Hat Linux server serial console access is usually configured in "/etc/inittab." Try inserting the line below:
+<blockquote>
+<pre>
+co:23456:respawn:/sbin/agetty ttyS0 9600 vt100 
+</pre>
+</blockquote>
+</p>
+</div>
+<h2>Cooling Considerations</h2>
+<div>
+<p>
+Servers run pretty hot mainly due to modern processors. Even in a fully air conditioned environment. It will pay you look into cooling. A lot will depend on rack density however this is one more reason why you should consider a rack optimised server, as the air cooling in a colocated environment should have been taken into consideration. You can also familiarise with the chipset architecture of your motherboard and consider setting up "sensors." You can then monitor the temperature of your CPU and motherboard and graph it using MRTG.
+</p>
+</div>
+<h2>Cheap Colocation Providers</h2>
+<div>
+<p>
+Well apart from us that is! However the following colocation providers come highly recommended. In other words, they are in demand, know what they are doing and possess "clue."
+</p>
+</div>
+<blockquote> 
+              <p>Bogons - <a href="
+http://www.bogons.net/" target="_blank">http://www.bogons.net/</a> - Based in Telehouse, 
+                but they may only usually Sun Netra servers.</p>
+              <p>Black Cat Networks - <a href="http://www.blackcatnetworks.co.uk/" target="_blank">http://www.blackcatnetworks.co.uk/</a> - Based in Redbus Harbour Exchange.</p>
+              <p>Jump Networks - <a href="http://www.jump.net.uk" target="_blank">http://www.jump.net.uk"</a> - Also based in Telehouse North, Docklands.</p>
+            </blockquote>
+<h2>Additional Thoughts</h2>
+<div>
+<p>
+You may wish to consider disc or hard drive redundancy. Although the "MTF" or Mean Time to Failure" quoted by hard drive manufacturers is impressive, hard drive failure, especially IDE failure happens depressingly often. With advent of S-ATA drives there is really no excuse, expecially if your are on a budget. You should consider cheap S-ATA drives (if you cannot afford SCSI) with Linux software RAID. Modern Linux distributions come with tools to administer and monitor the performance of software RAID arrays. 
+</p>
+<p>
+It can be helpful to duty technicians if all the main power lights are working. The power light, hard drive activity light and network light can be very useful. It goes without saying that the server should be correctly labelled at the front with it's hostname and IP address so it can be identified quickly.
+</p>
+<p>
+If you want to explore any further idea's discussed in the above or find any of it confusing do not hesitate to get in touch at admin (at) weycrest.com. You can find out more about our colocation pricing on our <a href="/uk-colocation.php">colocation page</a>.
+</p>
+</div>

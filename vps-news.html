@@ -1,0 +1,78 @@
+<div class="box" style="float:right; width:205px">
+<div class="mainTD7">
+<h2>VPS Hosting Plans</h2>
+<div align="center">
+<img src="i/server-stack.jpg" alt="server stack" title="server stack" width="130" height="93" border="0"></a>
+</div>
+<div>
+<p><a href="/cpanel-vps-hosting.php"><strong>View our Root VPS plans from just &pound;15.00 >></strong></a>
+</p>
+<p><a href="/cpanel-vps-hosting.php"><strong>View our Cpanel with WHM VPS plans from just &pound;20.00 >></strong></a>
+</p>
+<p><a href="/plesk-vps-hosting.php"><strong>View our Plesk VPS plans from just &pound;30.00 >></strong></a>
+</p>
+
+<p>
+Virtual private servers (VPS) enable you to have an environment similar to a full dedicated server but at a price similar to that of a high end shared hosting plan.
+</p>
+</div>
+<div align="center">
+<p>
+<img src="/i/centos_logo_45.png" height="32" width="150" alt="Centos VPS" title="Centos VPS"></a>
+</p>
+<p>
+<img src="/i/ubuntulogo.png" height="50" width="185" alt="Ubuntu VPS" title="Ubuntu VPS"></a>
+</p>
+<img src="/i/debian.png" height="51" width="150" alt="Debian VPS" title="Debian VPS"></a>
+</p>
+<img src="/i/gentoo-new.gif" height="59" width="182" alt="Gentoo VPS" title="Gentoo VPS"></a>
+</p>
+</div>
+<div>
+<p>
+<a href="http://www.centos.org" target="_blank" link="nofollow">Centos Enterprise Linux</a> VPS<br />
+<a href="http://www.fedoraproject.org" target="_blank" link="nofollow">Fedora Core Linux</a> VPS<br />
+<a href="http://www.debian.org" target="_blank" link="nofollow">GNU/Debian Linux</a> VPS<br />
+<a href="http://www.ubuntu.com" target="_blank" link="nofollow">Ubuntu Linux</a> VPS<br />
+<a href="http://www.ubuntu.com" target="_blank" link="nofollow">Gentoo VPS</a> VPS<br /> 
+</p>
+<p>
+Cpanel/WHM available on Centos only. Plesk available on Centos, Debian and Ubuntu
+</p>
+<p>Choice of Virtuozzo (VZPP) and OpenVZ VPS Types of VPS
+</p> 
+</div>
+<div align="center">
+<p>
+<img src="/i/SWSOFT_VZ30LIN.gif" height="41" width="158" alt="Virtuozzo VPS" title="Virtuozzo VPS"></a>
+</p>
+</div>
+</div>
+</div>
+<h1>Latest OpenVZ Software Updates</h1>
+<div>
+<p>
+<small>
+This page: <?php
+// outputs e.g.  somefile.txt was last modified: December 29 2002 22:16:23.
+
+$filename = 'vps-hosting.php';
+if (file_exists($filename)) {
+   echo "$filename was last updated: " . date ("F d Y H:i:s.", filemtime($filename));
+}
+?>
+</small>
+</p>
+<h2>OpenVZ Software Updates</h2>
+<p>
+<?php
+$url="http://www.rssground.com/rssservices/rssconvert.php?format=php&channel=yes&maxitem=1&font=Courier&url=http%3A%2F%2Fwiki.openvz.org%2Fw%2Findex.php%3Ftitle%3DNews%2Fupdates%26action%3Dfeed%26feed%3Drss";
+$contents = '';$fp = @fopen($url,"r");
+while (!feof($fp)) $contents .= @fread($fp, 8192);
+fclose($fp);
+echo $contents;
+?>
+
+</p>
+
+</div>
